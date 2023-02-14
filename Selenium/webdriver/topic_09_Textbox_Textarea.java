@@ -102,12 +102,12 @@ public class topic_09_Textbox_Textarea {
 
 		driver.findElement(By.xpath("//span[text()=\"My Info\"]")).click();
 
-	/*	
+		sleepInSecond(5);
 		Assert.assertEquals(driver.findElement(By.name("firstName")).getAttribute("value"), "Automation");
 		Assert.assertEquals(driver.findElement(By.name("lastName")).getAttribute("value"),"fc");
 		Assert.assertEquals(driver.findElement(By.xpath("//label[text()=\"Employee Id\"]/parent::div/following-sibling::div/input")).getAttribute("value"),employeeID);
 		sleepInSecond(5);
-	*/	
+		
 
 		driver.findElement(By.xpath("//a[text()='Immigration']")).click();
 		
@@ -136,6 +136,6 @@ public class topic_09_Textbox_Textarea {
 	}
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 }
