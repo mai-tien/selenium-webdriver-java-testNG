@@ -12,7 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class topic_15_Popup_part1 {
+public class Topic_15_Popup_In_DOM_Part1 {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
@@ -59,7 +59,7 @@ public class topic_15_Popup_part1 {
 
 	}
 
-	@Test
+	//@Test
 	public void TC_02_popup_in_DOM() {
 		driver.get("https://skills.kynaenglish.vn/");
 		
@@ -82,9 +82,9 @@ public class topic_15_Popup_part1 {
 
 	}
 
-	//@Test
+	@Test
 	public void TC_03_popup_not_in_DOM() {
-		
+		// đã đổi giao diện nên case này không chạy được nữa
 		driver.get("https://tiki.vn/");
 		
 		By loginPopup = By.cssSelector("div#k-popup-account-login");
@@ -104,21 +104,7 @@ public class topic_15_Popup_part1 {
 
 		Assert.assertEquals(driver.findElement(By.cssSelector("div#password-form-login-message")).getText(), "Sai tên đăng nhập hoặc mật khẩu");
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 
 	}
 	public void sleepInSecond(long timeInSecond) {
