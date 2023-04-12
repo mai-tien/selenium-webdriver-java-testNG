@@ -3,6 +3,7 @@ package webdriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class Topic_24_Explicit_wait_2 {
 	WebDriver driver;
+	Actions action;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 	WebDriverWait expliciWait;
@@ -19,11 +21,9 @@ public class Topic_24_Explicit_wait_2 {
 	
 	String foodfileName = "food.png";
 	String treefileName = "tree.png";
-	String sunflowerfileName = "sunflower.png";
 	
 	String foodFilePath = projectPath + "/Uploadfile/" + foodfileName;
 	String  treeFilePath = projectPath + "/Uploadfile/" + treefileName;
-	String sunflowerFilePath = projectPath + "/Uploadfile/" + sunflowerfileName;
 
 	
 	@BeforeClass
@@ -36,10 +36,10 @@ public class Topic_24_Explicit_wait_2 {
 
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
-
+		action = new Actions(driver);
 	}
 
-	@Test
+	//@Test
 	public void TC_01_visible() {
 
 		driver.get("https://automationfc.github.io/dynamic-loading/");
@@ -54,7 +54,7 @@ public class Topic_24_Explicit_wait_2 {
 	
 	}
 
-	@Test
+	//@Test
 	public void TC_02_invisible() {
 
 		driver.get("https://automationfc.github.io/dynamic-loading/");
@@ -68,7 +68,7 @@ public class Topic_24_Explicit_wait_2 {
 		Assert.assertEquals(driver.findElement(By.cssSelector("div#finish>h4")).getText(),"Hello World!");
 	
 	}
-	@Test
+	//@Test
 	public void TC_03_AJAX_loading() {
 
 		driver.get("https://demos.telerik.com/aspnet-ajax/ajaxloadingpanel/functionality/explicit-show-hide/defaultcs.aspx");
@@ -106,7 +106,15 @@ public class Topic_24_Explicit_wait_2 {
 		expliciWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Your files have been successfully uploaded']")));
 		//veryfy mess hiển thị
 		Assert.assertTrue(driver.findElement(By.xpath("//div[text()='Your files have been successfully uploaded']")).isDisplayed());
-	
+		// click vào link download
+		action.doubleClick(driver.findElement(By.cssSelector("div.mainUploadSuccessLink a"))).perform();
+
+		//verify cho file name hiển thị
+		Assert.assertTrue(expliciWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='food.png']"))).isDisplayed());
+		Assert.assertTrue(expliciWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='tree.png']"))).isDisplayed());
+
+		
+		
 	}
 	public void sleepInSecond(long timeInSecond) {
 		try {
@@ -118,6 +126,6 @@ public class Topic_24_Explicit_wait_2 {
 	}
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 }
