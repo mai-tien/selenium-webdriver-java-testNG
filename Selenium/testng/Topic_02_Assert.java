@@ -2,7 +2,7 @@ package testng;
 
 import org.testng.Assert;
 
-public class topic_01_assert {
+public class Topic_02_Assert {
 
 	public static void main(String[] args) {
 
