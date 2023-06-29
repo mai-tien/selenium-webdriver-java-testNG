@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.seleniumhq.jetty9.server.Response.OutputType;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -45,9 +44,6 @@ public class topic_08_web_element_PI {
 		
 		// click vào các button / link/ checkbox/ radio/ image
 		element.click();
-		String searchAtribute = element.getAttribute("placeholder");
-		String emailTextboxAtribute = element.getAttribute("value");
-		
 		//GUI: font/size/color/ location/ position/...
 		element.getCssValue("background-color");
 		

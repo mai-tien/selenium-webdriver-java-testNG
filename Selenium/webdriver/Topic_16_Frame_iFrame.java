@@ -89,11 +89,14 @@ public class Topic_16_Frame_iFrame {
 		driver.switchTo().frame("login_page");
 		
 		driver.findElement(By.name("fldLoginUserId")).sendKeys("nacy25");
-		sleepInSecond(2);
 		driver.findElement(By.cssSelector("a.login-btn")).click();
+		sleepInSecond(2);
 		
-		Assert.assertTrue(driver.findElement(By.cssSelector("input#fldPasswordDispId")).isDisplayed());
-		driver.findElement(By.cssSelector("input#fldPasswordDispId")).sendKeys("nacy2534");
+		// switch về default
+		driver.switchTo().defaultContent();
+		
+		Assert.assertTrue(driver.findElement(By.id("keyboard")).isDisplayed());
+		driver.findElement(By.id("keyboard")).sendKeys("nacy2534");
 	}
 
 	@Test

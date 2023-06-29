@@ -16,7 +16,7 @@ public class Topic_25_Mix_Explicit_Implicit {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
-	WebDriverWait expliciWait;
+	WebDriverWait explicitWait;
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -36,7 +36,7 @@ public class Topic_25_Mix_Explicit_Implicit {
 		//element có thể xuất hiện và không chờ hết timeout
 		//dù có set cả loại wait thì cũng không ảnh hưởng
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		expliciWait = new WebDriverWait(driver,10); 
+		explicitWait = new WebDriverWait(driver,10); 
 		
 		// implicit wait : chỉ apply cho findElement/findElements
 		// Explicit wait : cho các điều kiện của element
@@ -45,7 +45,7 @@ public class Topic_25_Mix_Explicit_Implicit {
 		
 		//Explicit
 		System.out.println("thoi gian bat đau explicit: " + getTimeStamp());
-		expliciWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#email")));
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#email")));
 		System.out.println("thoi gian kết thúc explicit: " + getTimeStamp());
 
 		//implicit wait
@@ -75,7 +75,7 @@ public class Topic_25_Mix_Explicit_Implicit {
 	@Test
 	public void TC_03_Element_Not_found_implicit_explicit() {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		expliciWait = new WebDriverWait(driver,5); 
+		explicitWait = new WebDriverWait(driver,5); 
 		
 		driver.get("https://www.facebook.com/");
 
@@ -89,7 +89,7 @@ public class Topic_25_Mix_Explicit_Implicit {
 		//Explicit
 		System.out.println("thoi gian bat đau explicit: " + getTimeStamp());
 		try {
-			expliciWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#selenium")));
+			explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#selenium")));
 		} catch (Exception e) {
 			System.out.println("thoi gian kết thúc explicit: " + getTimeStamp());
 
@@ -97,13 +97,13 @@ public class Topic_25_Mix_Explicit_Implicit {
 	}
 	@Test
 	public void TC_04_Element_Not_found_explicit() {
-		expliciWait = new WebDriverWait(driver,5); 
+		explicitWait = new WebDriverWait(driver,5); 
 		driver.get("https://www.facebook.com/");
 		
 		//Explicit
 		System.out.println("thoi gian bat đau explicit: " + getTimeStamp());
 		try {
-			expliciWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#selenium")));
+			explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#selenium")));
 		} catch (Exception e) {
 			System.out.println("thoi gian kết thúc explicit: " + getTimeStamp());
 
@@ -112,12 +112,12 @@ public class Topic_25_Mix_Explicit_Implicit {
 	@Test
 	public void TC_05_Element_Not_found_explicit_implicit() {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		expliciWait = new WebDriverWait(driver,5); 
+		explicitWait = new WebDriverWait(driver,5); 
 		
 		driver.get("https://www.facebook.com/");
 		System.out.println("thoi gian bat đau explicit: " + getTimeStamp());
 		try {
-			expliciWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("input#selenium"))));
+			explicitWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("input#selenium"))));
 		} catch (Exception e) {
 			System.out.println("thoi gian kết thúc explicit: " + getTimeStamp());
 

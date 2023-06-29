@@ -34,7 +34,7 @@ public class Topic_20_Element_Condition_Status {
 		
 	}
 
-	//@Test
+	@Test
 	public void TC_01_Visible_Displayed_Visibility() {
 		driver.get("https://www.facebook.com/");
 		// có trên UI
@@ -45,7 +45,7 @@ public class Topic_20_Element_Condition_Status {
 		
 	}
 
-	//@Test
+	@Test
 	public void TC_02_Invisible_Undisplayed_Invisibility_1() {
 		driver.get("https://www.facebook.com/");
 		// không có trên UI
@@ -57,7 +57,7 @@ public class Topic_20_Element_Condition_Status {
 		
 	}
 	
-	//@Test
+	@Test
 	public void TC_02_Invisible_Undisplayed_Invisibility_2() {
 		driver.get("https://www.facebook.com/");
 		// không có trên UI
@@ -65,7 +65,7 @@ public class Topic_20_Element_Condition_Status {
 		// chờ cho email textbox không xuất hiện trong 10s
 		expliciWait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("reg_email_confirmation__")));
 	}
-	//@Test
+	@Test
 	public void TC_03_Presence_1() {
 		driver.get("https://www.facebook.com/");
 		// có trên UI
@@ -85,7 +85,7 @@ public class Topic_20_Element_Condition_Status {
 		expliciWait.until(ExpectedConditions.presenceOfElementLocated(By.name("reg_email_confirmation__")));
 	}
 
-	//@Test
+	@Test
 	public void TC_04_Staleness() {
 		driver.get("https://www.facebook.com/");
 		// không có trên UI

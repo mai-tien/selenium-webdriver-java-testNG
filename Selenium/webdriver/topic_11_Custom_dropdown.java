@@ -101,24 +101,23 @@ public class topic_11_Custom_dropdown {
 	}
 
 	@Test
-		public void TC_04_editable() {
-			driver.get("https://react.semantic-ui.com/maximize/dropdown-example-search-selection/");
+	public void TC_04_editable() {
+		driver.get("https://react.semantic-ui.com/maximize/dropdown-example-search-selection/");
 
-			selectItemInDropdown("input.search", "span.text", "Afghanistan");
-			sleepInSecond(3);
-			Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(),"Afghanistan");
+		selectItemInDropdown("input.search", "span.text", "Afghanistan");
+		sleepInSecond(3);
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(), "Afghanistan");
 
-			
-			selectItemInDropdown("input.search", "span.text", "Benin");
-			sleepInSecond(3);
-			Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(),"Benin");
+		selectItemInDropdown("input.search", "span.text", "Benin");
+		sleepInSecond(3);
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(), "Benin");
 
-			selectItemInDropdown("input.search", "span.text", "Austria");
-			sleepInSecond(3);
-			Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(),"Austria");
+		selectItemInDropdown("input.search", "span.text", "Austria");
+		sleepInSecond(3);
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.divider.text")).getText(), "Austria");
 
 	}
-		
+
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
@@ -133,7 +132,7 @@ public class topic_11_Custom_dropdown {
 		} // 1000ms = 1s
 	}
 
-public void selectItemInDropdown(String parentCss, String allItemCss, String expectedTextItem) {
+	public void selectItemInDropdown(String parentCss, String allItemCss, String expectedTextItem) {
 
 		// 1. click vào 1 thẻ bất kì làm sao xổ ra các item
 		driver.findElement(By.cssSelector(parentCss)).click();
@@ -161,38 +160,38 @@ public void selectItemInDropdown(String parentCss, String allItemCss, String exp
 				break;
 			}
 		}
-}
+	}
 
-public void enterandselectItemInDropdown(String textboxcss, String allItemCss, String expectedTextItem) {
+	public void enterandselectItemInDropdown(String textboxcss, String allItemCss, String expectedTextItem) {
 
-	// 1. click vào 1 thẻ bất kì làm sao xổ ra các item
-	driver.findElement(By.cssSelector(textboxcss)).clear();
-	driver.findElement(By.cssSelector(textboxcss)).sendKeys(expectedTextItem);
-	
-	sleepInSecond(1);
-	// 2. chờ cho tất cả list load thành công
-	// locator phải lấy để đại diện cho tất cả item
-	// lấy đến thẻ chứa text
+		// 1. click vào 1 thẻ bất kì làm sao xổ ra các item
+		driver.findElement(By.cssSelector(textboxcss)).clear();
+		driver.findElement(By.cssSelector(textboxcss)).sendKeys(expectedTextItem);
 
-	explicitWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(allItemCss)));
+		sleepInSecond(1);
+		// 2. chờ cho tất cả list load thành công
+		// locator phải lấy để đại diện cho tất cả item
+		// lấy đến thẻ chứa text
 
-	// đưa hết tất cả item trong dropdown vào 1 list
+		explicitWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(allItemCss)));
 
-	List<WebElement> speedDropdownItems = driver.findElements(By.cssSelector(allItemCss));
+		// đưa hết tất cả item trong dropdown vào 1 list
 
-	// 3. tìm item xem đúng cái mình đang cần hay không
-	for (WebElement tempItem : speedDropdownItems) {
-		String itemText = tempItem.getText();
-		System.out.println(itemText);
+		List<WebElement> speedDropdownItems = driver.findElements(By.cssSelector(allItemCss));
 
-		// 4. kiểm tra cái text của item có đúng cái mình muốn hay không
-		if (itemText.trim().equals(expectedTextItem)) {
-			sleepInSecond(2);
-			// 5. click vào item đó
-			tempItem.click();
-			// thoát khỏi vòng lặp và không xét các case tiếp theo
-			break;
+		// 3. tìm item xem đúng cái mình đang cần hay không
+		for (WebElement tempItem : speedDropdownItems) {
+			String itemText = tempItem.getText();
+			System.out.println(itemText);
+
+			// 4. kiểm tra cái text của item có đúng cái mình muốn hay không
+			if (itemText.trim().equals(expectedTextItem)) {
+				sleepInSecond(2);
+				// 5. click vào item đó
+				tempItem.click();
+				// thoát khỏi vòng lặp và không xét các case tiếp theo
+				break;
+			}
 		}
 	}
-}
 }

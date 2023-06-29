@@ -34,7 +34,7 @@ public class topic_13_alert {
 		explicitWait = new WebDriverWait(driver, 10);
 	}
 
-	//@Test
+	@Test
 	public void TC_01_accept_alert() {
 		driver.get("https://automationfc.github.io/basic-form/index.html");
 		

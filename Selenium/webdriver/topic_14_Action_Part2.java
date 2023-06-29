@@ -53,8 +53,7 @@ public class topic_14_Action_Part2 {
 		List<WebElement> listselectedNumber = driver.findElements(By.cssSelector("ol#selectable>li.ui-selected"));
 
 		Assert.assertEquals(listselectedNumber.size(),8);
-		
-		
+
 	}
 
 	@Test
@@ -70,8 +69,9 @@ public class topic_14_Action_Part2 {
 		}
 		
 		List<WebElement> listNumber = driver.findElements(By.cssSelector("ol#selectable>li"));
-		// nhân command xuống
+		// nhấn command xuống
 		action.keyDown(key).perform();
+		
 		// click chọn các số random
 		action.click(listNumber.get(0))
 		.click(listNumber.get(3))
@@ -85,21 +85,14 @@ public class topic_14_Action_Part2 {
 		List<WebElement> listselectedNumber = driver.findElements(By.cssSelector("ol#selectable>li.ui-selected"));
 
 		Assert.assertEquals(listselectedNumber.size(),4);
-		
-		
-		
-		
-	}
-
-	@Test
-	public void TC_03() {
 
 	}
+
 	public void sleepInSecond(long timeInSecond) {
 		try {
 			Thread.sleep(timeInSecond * 1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} // 1000ms = 1s
 	}

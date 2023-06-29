@@ -1,6 +1,5 @@
 package webdriver;
 
-import java.awt.Desktop.Action;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -12,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class topic_14_Action_PartI {
+public class topic_14_Action_Part1 {
 	WebDriver driver;
 	Actions action;
 	String projectPath = System.getProperty("user.dir");

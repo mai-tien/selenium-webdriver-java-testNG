@@ -1,11 +1,11 @@
 package webdriver;
 
-import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -102,15 +102,7 @@ public class topic_14_Action_Part3 {
 	@Test
 	public void TC_04_drag_and_drop_html5() {
 	
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	
 	}
 	public void sleepInSecond(long timeInSecond) {

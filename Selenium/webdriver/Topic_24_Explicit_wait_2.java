@@ -106,7 +106,7 @@ public class Topic_24_Explicit_wait_2 {
 		expliciWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Your files have been successfully uploaded']")));
 		//veryfy mess hiển thị
 		Assert.assertTrue(driver.findElement(By.xpath("//div[text()='Your files have been successfully uploaded']")).isDisplayed());
-		// click vào link download
+		// click vào link hiển thị
 		action.doubleClick(driver.findElement(By.cssSelector("div.mainUploadSuccessLink a"))).perform();
 
 		//verify cho file name hiển thị

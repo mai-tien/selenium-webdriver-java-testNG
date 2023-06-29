@@ -1,6 +1,5 @@
 package webdriver;
 
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -66,12 +65,6 @@ public class topic_07_Web_browser_PI {
 		//trả về title hiện tại
 		Assert.assertTrue(driver.getTitle().contains("Đăng nhập hoặc đăng ký"));
 
-		// lấy ra id của window/tab đang đứng
-		String loginWindowID = driver.getWindowHandle();
-		
-		//láy ra id của tất cả window/tab
-		Set<String> allIDs = driver.getWindowHandles();
-		
 		//cookie/cache
 		Options opt = driver.manage();
 		opt.getCookies();

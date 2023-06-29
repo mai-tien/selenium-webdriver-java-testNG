@@ -25,7 +25,7 @@ public class Topic_26_Fluent_wait {
 	FluentWait <WebDriver> fluentDriver;
 	
 	long alltime = 15; // second
-	long pollingTime =100; //milisecond
+	long pollingTime =100; //Milisecond
 	
 	@BeforeClass
 	public void beforeClass() {
